@@ -1,0 +1,46 @@
+// Background colors
+$headerBGColor: #1e2631;
+$mainMenuBGColor: #3a4c62;
+$contentBGColor: #ededed;
+$footerBGColor: #2b3747;
+$menuHoverBGColor: #00aeef;
+$inputBGColor: #fafafa;
+$submitBGColor: #0071c5;
+$submitHoverBGColor: #176698;
+
+// Border colors
+$inputBorderColor: #c6c6c6;
+
+// Font colors
+$footerColor: #9ca5ab;
+$basicColor: white;
+
+// Font sizes
+$smallFontSize: 14px;
+$mediumFontSize: 19px;
+$largeFontSize: 36px;
+
+
+
+$loginBoxColor: #00aeef;
+$boxRadius: 8px;
+$innerSpacing: 8px;
+$lightColor: white;
+$submitFontSize: 18px;
+$loginTitleFontSize: 16px;
+$inputFontSize: 14px;
+$invalidColor: #b13d31;
+$disabledBG: #efefef;
+$disabledColor: #ccc;
+$invalidFontSize: 12px;
+
+@mixin app-button {
+    --label-color: $basicColor;
+    --back-color: $submitBGColor;
+    --label-size: $smallFontSize;
+}
+
+@mixin content-color($color) {
+    color: $color;
+    fill: $color;
+}

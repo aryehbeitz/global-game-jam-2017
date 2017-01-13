@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://localhost:8445",
+        "secure": false
+    },
+    "/application": {
+        "target": "https://localhost:8445",
+        "secure": false
+    }
+}

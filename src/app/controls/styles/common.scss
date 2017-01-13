@@ -1,0 +1,57 @@
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    @extend .flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.flex-centered {
+    @extend .flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-end {
+    @extend .flex-row;
+    justify-content: flex-end;
+}
+
+.flex-row-bw {
+    @extend .flex-row;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 12px;
+    height: 12px;
+}
+
+.circle-icon {
+    @extend .icon;
+    border-radius: 12px;
+    padding: 6px;
+    background-color: black;
+    fill: white;
+}
+
+.circle-icon-button {
+    @extend .circle-icon;
+    cursor: pointer;
+}
+
+@mixin non-selectable {
+    user-select: none;
+    cursor: default;
+}
+
+@mixin hoverable {
+    cursor: pointer;
+    user-select: none;
+    &.disabled, &[disabled] {
+        cursor: default;
+    }
+}

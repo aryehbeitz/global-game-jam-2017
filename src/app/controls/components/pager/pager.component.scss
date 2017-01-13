@@ -1,0 +1,7 @@
+@import '../../styles/common.scss';
+@import '../../styles/common.theme.scss';
+
+.pager-container {
+    @extend .flex-row;
+    align-items: center;
+}

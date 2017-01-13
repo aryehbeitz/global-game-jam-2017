@@ -1,0 +1,16 @@
+@import '../../../shared/common';
+@import '../../../shared/common.theme';
+
+main {
+    @extend .flex;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $contentBGColor;
+    font-size: $mediumFontSize;
+
+    .svg-store {
+        display: none;
+    }
+}
+

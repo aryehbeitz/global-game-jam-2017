@@ -1,0 +1,55 @@
+@import '../../styles/common';
+@import '../../styles/common.theme';
+
+.grid-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    thead {
+        tr {
+            background-color: lightgrey;
+            color: white;
+            border: none;
+
+            th {
+                @include hoverable;
+                font-weight: normal;
+                white-space: nowrap;
+                padding: 5px 0;
+                text-align: left;
+
+                &:first-child {
+                    border-top-left-radius: 5px;
+                }
+                &:last-child {
+                    border-top-right-radius: 5px;
+                }
+
+                &.selectables {
+                    width: 30px;
+                }
+            }
+        }
+    }
+    tbody {
+        border-bottom: 1px solid lightgray;
+        tr {
+            font-size: 14px;
+            background-color: white;
+            border-left: 1px solid lightgrey;
+            border-right: 1px solid lightgrey;
+
+            &.row {
+                &.expandable {
+                    cursor: pointer;
+                }
+            }
+        }
+        td, th {
+            padding: 5px;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

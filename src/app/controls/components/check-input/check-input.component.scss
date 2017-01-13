@@ -1,0 +1,31 @@
+@import '../../../shared/common.scss';
+@import '../../../shared/common.theme.scss';
+
+.check-container {
+    position: relative;
+    width: 100%;
+    .form-input {
+        padding: 5px;
+        width: calc(100% - 10px);
+        border-radius: 5px;
+        height: 25px;
+        border: 1px solid;
+        border-color: $inputBorderColor;
+        font-size: $inputFontSize;
+        background-color: $inputBGColor;
+
+        &:focus {
+            background-color: $basicColor;
+        }
+    }
+    .input-validator {
+        position: absolute;
+        color: $invalidColor;
+        padding: 5px 0;
+        top: 0;
+        line-height: 27px;
+        right: 0;
+        margin-right: 10px;
+        font-size: $invalidFontSize;
+    }
+}

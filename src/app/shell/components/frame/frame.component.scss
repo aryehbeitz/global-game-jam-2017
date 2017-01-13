@@ -1,0 +1,36 @@
+@import '../../../shared/common';
+@import '../../../shared/common.theme';
+
+.frame-container {
+    @extend .flex;
+    height: 100%;
+
+    header {
+        @extend .flex;
+    }
+    .frame-bottom {
+        @extend .flex-row-bw;
+        height: 100%;
+
+        main-menu {
+            @extend .flex;
+            height: 100%;
+        }
+
+        .frame-content {
+            width: 100%;
+            background-color: $contentBGColor;
+            overflow-y: auto;
+
+            .placeholder-container {
+                min-height: calc(100% - 60px);
+                margin: 10px;
+            }
+
+            footer {
+                @extend .flex;
+                width: 100%;
+            }
+        }
+    }
+}
