@@ -1,4 +1,3 @@
-import { FrameComponent } from './components/frame/frame.component';
 import { ProtectedGuard } from './guards/protected.guard';
 import { PermissionGuard } from '../core/guards/permission.guard';
 import { UserPermissionsGuard } from './guards/user-permissions.guard';
@@ -17,7 +16,7 @@ import { RouterModule } from '@angular/router';
         path: 'board',
         loadChildren: '../board/board.module#BoardModule'
       },
-      { path: '**', redirectTo: '/board/rooms' }
+      { path: '**', redirectTo: '/main/intro' }
     ])
   ],
   providers: [

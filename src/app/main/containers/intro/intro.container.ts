@@ -1,12 +1,18 @@
+import { SetupBoardAction } from './../../../board/actions/board.action';
 import { InputValidator } from './../../../controls/validators/input-validator';
 import { Observable } from 'rxjs';
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-// import { DelayedNavigationAction } from '../../actions/main.action';
 
 @Component({
-  templateUrl: './template.html',
-  styleUrls: ['./styles.scss']
+  template:  `
+    <div class="intro-container">
+      <button-input (click)="startGame()">
+        <svg icon="alarm"></svg>
+      </button-input>
+    </div>
+  `,
+  styleUrls: ['./intro.container.scss']
 })
 export class IntroContainer {
   constructor(
@@ -14,9 +20,10 @@ export class IntroContainer {
   ) {}
 
   ngOnInit() {
-    // this.store.dispatch(new DelayedNavigationAction({ 
-    //   delay: 2000,
-    //   navigateTo: ['main', 'main-menu']
-    // })); 
+     
+  }
+
+  startGame() {
+    this.store.dispatch(new SetupBoardAction());
   }
 }

@@ -1,4 +1,6 @@
 <div class="room-container">
-  <div>{{ room.displayName }}</div>
-  <ggj-character *ngFor="let character of room.characters" [character]="character"></ggj-character>
+  <!--<div>{{ room.displayName }}</div>-->
+  <div class="characters">
+    <ggj-character *ngFor="let character of characters" [character]="character"></ggj-character>
+  </div>
 </div>

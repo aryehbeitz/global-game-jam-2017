@@ -1,6 +1,6 @@
 <div class="board-container">
 
   <div class="rooms">
-    <ggj-room *ngFor="let room of rooms | async" [room]="room"></ggj-room> 
+    <ggj-room *ngFor="let room of rooms | async" [room]="room" [characters]="getRoomCharacters(room.id) | async"></ggj-room> 
   </div>
 </div>

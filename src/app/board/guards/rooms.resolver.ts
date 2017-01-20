@@ -12,7 +12,7 @@ export class RoomsResolver implements Resolve<Observable<any>> {
   ) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    this.store.dispatch(new SetupBoardAction());
+    // this.store.dispatch(new SetupBoardAction());
     return this.store.select('board', 'rooms')
       .filter((rooms: Room[]) => !!rooms.length)
       .first();

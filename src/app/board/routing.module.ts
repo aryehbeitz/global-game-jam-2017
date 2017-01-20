@@ -1,6 +1,6 @@
+import { SessionEndContainer } from './containers/session-end/session-end.container';
 import { RoomsResolver } from './guards/rooms.resolver';
 import { BoardContainer } from './containers/board/board.container';
-import { IntroContainer } from './containers/intro/intro.container';
 import { LogoPageContainer } from './containers/logo-page/logo-page.container';
 import { MainMenuContainer } from './containers/main-menu/main-menu.container';
 import { NgModule } from '@angular/core';
@@ -22,7 +22,14 @@ import { PermissionGuard } from '../core/guards/permission.guard';
             component: BoardContainer
             
           },
-          { path: '**', redirectTo: 'rooms' }
+          {
+            path: 'session-end',
+            resolve: {
+              rooms: RoomsResolver
+            },
+            component: SessionEndContainer
+            
+          }
         ]
       },
       { path: '**', redirectTo: 'rooms' }

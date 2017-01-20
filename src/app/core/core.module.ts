@@ -1,3 +1,11 @@
+import { CharacterEffects } from './../board/effects/character.effect';
+import { RoomEffects } from './../board/effects/room.effect';
+import { MainEffects } from './../main/effects/main.effect';
+import { BoardService } from './../board/services/board.service';
+import { RoomService } from './../board/services/room.service';
+import { CharacterService } from './../board/services/character.service';
+import { BoardEffects } from './../board/effects/board.effect';
+import { ArrayExtensionsService } from './services/array-extensions.service';
 import { MainMenuEffects } from './../main/effects/main-menu.effect';
 import { EffectsModule } from '@ngrx/effects';
 import { InlineSVGModule } from 'ng-inline-svg';
@@ -28,6 +36,10 @@ let providers: Array<any> = [
   CachingService,
   SessionService, 
   SecurityService,
+  ArrayExtensionsService,
+  BoardService,
+  RoomService,
+  CharacterService,
   {
     provide: ConnectorConfig,
     useValue: environment.backend
@@ -51,7 +63,11 @@ const onlyExports: any = [
 ];
 
 const imports: any = onlyExports.concat([
-
+  EffectsModule.run(MainMenuEffects),
+  EffectsModule.run(BoardEffects),
+  EffectsModule.run(RoomEffects),
+  EffectsModule.run(CharacterEffects),
+  EffectsModule.run(MainEffects)
 ]);
 
 @NgModule({

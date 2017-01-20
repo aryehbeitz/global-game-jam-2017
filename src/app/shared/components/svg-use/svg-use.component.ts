@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
  * @example Dynamic: &lt;svg [icon]="iconName"&gt;&lt;/svg&gt;
  */
 @Component({
-	selector: 'ggj-svg[icon]',
+	selector: 'svg[icon]',
 	template: `<svg:use [attr.xlink:href]="iconName"></svg:use>`
 })
 export class SvgUseComponent {

@@ -1,67 +1,36 @@
 import { NavToIntroAction } from './../../actions/main-menu.action';
-import { InputValidator } from './../../../controls/validators/input-validator';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AppUser } from './../../models/app-user.model';
 import { Observable } from 'rxjs';
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { GoToAppUsersQueryAction } from '../../actions/main-menu.action';
 
 @Component({
-  templateUrl: './template.html',
-  styleUrls: ['./styles.scss']
+  template: `
+    <div class="users-container" >
+        <div class="main-menu">
+            <button-input (click)="startGame()">
+                <div class="content">
+                    <svg icon="alarm"></svg>
+                    <div i18n>Start</div>
+                </div>
+            </button-input>
+            <button-input i18n (click)="startGame()">Settings</button-input>
+            <button-input i18n (click)="startGame()">Credits</button-input>
+        </div>
+    </div>
+  `,
+  styleUrls: ['./main-menu.container.scss']
 })
 export class MainMenuContainer {
-  usersForm: FormGroup;
-
   constructor(
-    private store: Store<any>,
-    private route: ActivatedRoute
+    private store: Store<any>
   ) {}
 
   ngOnInit() {
-    this.usersForm = new FormGroup({
-      
-    })
-
+    
   }
 
   startGame() {
     this.store.dispatch(new NavToIntroAction());
-  }
-
-  get foundRecordsMapping() {
-    return {
-      '=0': 'No Users Found',
-      '=1': '1 User Found',
-      'other': '# Users Found'
-    }
-  }
-
-  get tableDefs() {
-    return [
-      {
-        name: 'username',
-        dislpayName: 'Username'
-      },
-      {
-        name: 'name',
-        dislpayName: 'Name'
-      },
-      {
-        name: 'status',
-        dislpayName: 'Status'
-      },
-      {
-        name: 'lastLogin',
-        dislpayName: 'Last Login'
-      },
-      {
-        name: 'isAdmin',
-        dislpayName: 'Admin'
-      }
-    ];
   }
 
 }

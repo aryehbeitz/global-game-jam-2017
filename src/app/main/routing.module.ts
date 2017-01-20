@@ -18,43 +18,11 @@ import { PermissionGuard } from '../core/guards/permission.guard';
         path: 'main-menu',
         component: MainMenuContainer
       },
-        // children: [
-        //   {
-        //     path: 'access-control',
-        //     children: [
-        //       {
-        //         path: 'users',
-        //         resolve: {
-        //           usersMeta: AppUsersMetaResolver
-        //         },
-        //         children: [
-        //           {
-        //             path: ':query',
-        //             component: UsersComponent,
-        //             resolve: {
-        //               users: AppUsersResolver
-        //             }
-        //           },
-        //           {
-        //             path: '',
-        //             component: UsersComponent,
-        //             resolve: {
-        //               users: AppUsersResolver
-        //             }
-        //           }
-        //         ]
-        //       },
-        //       { path: '**', redirectTo: 'users/' }
-        //     ]
-        //   },
-        //   { path: '**', redirectTo: 'access-control' }
-        // ]
-      // }
+      {
+        path: 'intro',
+        component: IntroContainer
+      }
     ])
-  ],
-  providers: [
-    // AppUsersMetaResolver,
-    // AppUsersResolver
   ],
   exports: [
     RouterModule

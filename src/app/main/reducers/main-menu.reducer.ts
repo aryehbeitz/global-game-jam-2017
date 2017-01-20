@@ -12,10 +12,6 @@ const initialState: State = {
 
 export function mainMenuReducer(state: State = initialState, action): State {
     switch (action.type) {
-        case MainMenuActionTypes.LOAD_APP_USERS_COMPLETE:
-            return Object.assign({}, state, {
-                
-            });
         case ShellActionTypes.LOGOUT:
             return Object.assign({}, state, {
             });

@@ -1,0 +1,13 @@
+@import '../../../shared/common';
+@import '../../../shared/common.theme';
+
+.session-end-container {
+    @extend .flex-centered;
+    height: 100%;
+
+    --label-size: 36px;
+
+    // svg[icon="alarm"] { 
+    //     @include size(100px);
+    // }
+}

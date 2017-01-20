@@ -19,7 +19,13 @@ export class BoardContainer implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.rooms = this.store.select('board', 'rooms')
+    this.rooms = this.store.select('board', 'rooms');
+    this.characters = this.store.select('board', 'characters');
+  }
+
+  getRoomCharacters(roomId) {
+    return this.characters
+      .map(characters => characters.filter(character => character.roomId === roomId));
   }
 
 }
