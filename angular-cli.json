@@ -15,7 +15,7 @@
       "main": "main.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "sng",
+      "prefix": "ggj",
       "mobile": false,
       "styles": [
         "./styles.scss"

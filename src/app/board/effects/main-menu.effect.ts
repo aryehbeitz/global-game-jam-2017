@@ -55,7 +55,7 @@ export class MainMenuEffects {
   @Effect({ dispatch: false })
   navToIntro$: Observable<any> = this.actions$
     .ofType(MainMenuActionTypes.NAV_TO_INTRO)
-    .do(_ => this.store.dispatch(go(['/board/intro'])));
+    .do(_ => this.store.dispatch(go(['/main/intro'])));
 
   private getReducedParams(params) {
     let reducedParams = {};

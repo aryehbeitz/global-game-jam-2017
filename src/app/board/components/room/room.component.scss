@@ -1,0 +1,8 @@
+@import '../../../shared/common';
+@import '../../../shared/common.theme';
+
+.room-container {
+    @extend .flex;
+    width: 100%;
+    height: 100%;
+}

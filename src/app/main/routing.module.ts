@@ -18,10 +18,6 @@ import { PermissionGuard } from '../core/guards/permission.guard';
         path: 'main-menu',
         component: MainMenuContainer
       },
-      {
-        path: 'intro',
-        component: IntroContainer
-      }
         // children: [
         //   {
         //     path: 'access-control',

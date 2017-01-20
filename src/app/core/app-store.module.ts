@@ -5,6 +5,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { shellReducer } from '../shell/reducers/shell.reducer';
 import { systemReducer } from './reducers/system.reducer';
 import { mainMenuReducer } from '../main/reducers/main-menu.reducer';
+import { boardReducer } from '../board/reducers/board.reducer';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { mainMenuReducer } from '../main/reducers/main-menu.reducer';
       router: routerReducer,
       shell: shellReducer,
       system: systemReducer,
-      main: mainMenuReducer
+      main: mainMenuReducer,
+      board: boardReducer
     }, {
       router: {
         path: window.location.pathname + window.location.search

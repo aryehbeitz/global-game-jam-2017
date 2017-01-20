@@ -13,7 +13,11 @@ import { RouterModule } from '@angular/router';
         path: 'main',
         loadChildren: '../main/main.module#MainModule'
       },
-      { path: '**', redirectTo: '/main' }
+      {
+        path: 'board',
+        loadChildren: '../board/board.module#BoardModule'
+      },
+      { path: '**', redirectTo: '/board' }
     ])
   ],
   providers: [

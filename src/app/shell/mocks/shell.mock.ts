@@ -97,7 +97,7 @@ export class ShellMock extends Http {
             pattern: /\/system\/getSystemInfo/,
             handler: (url: string, body: {}) => ({
                 status: 200,
-                body: {"serverUniq":"devtest","buildVersion":"4.4.5","buildRevision":"1122334455","buildTimestamp":"1482219355503","serverVersion":"4.4.5.1122334455-1482219355503","vendorName":"Mcafee","productName":"SNG Server"}
+                body: {}
             })
         }
     ];

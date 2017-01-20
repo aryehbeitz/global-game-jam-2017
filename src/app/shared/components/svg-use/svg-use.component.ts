@@ -1,4 +1,4 @@
-import {Component, Input, HostListener} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 /**
  * SVG store icon. Acts on svg tag only.
@@ -6,17 +6,12 @@ import {Component, Input, HostListener} from '@angular/core';
  * @example Dynamic: &lt;svg [icon]="iconName"&gt;&lt;/svg&gt;
  */
 @Component({
-	selector: 'svg[icon]',
+	selector: 'ggj-svg[icon]',
 	template: `<svg:use [attr.xlink:href]="iconName"></svg:use>`
 })
 export class SvgUseComponent {
-	private iconName:string;
+	iconName:string;
 	@Input() fallbackIcon:string;
-	@HostListener('error') fallback() {
-		if(this.fallbackIcon){
-			this.iconName = `#${this.fallbackIcon}`;
-		}
-	}
 	/**
 	 * @param value Name of the id/svg-filename of the desired icon or an angular2 template expression if wrapped with parentheses
 	 */

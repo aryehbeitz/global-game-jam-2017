@@ -3,7 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { MainMenuComponent } from './main-menu.component';
 
-describe('App: SNG Web', () => {
+describe('App: Web', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [

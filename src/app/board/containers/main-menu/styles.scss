@@ -1,0 +1,27 @@
+@import '../../../shared/common.scss';
+@import '../../../shared/common.theme.scss';
+
+.users-container {
+    @extend .flex-centered;
+    height: 100%;
+
+    .main-menu {
+        button-input {
+            width: 300px;
+            display: block;
+            --label-size: 28px;
+            margin-bottom: 10px;
+
+            .content {
+                @extend .flex-row;
+                @include content-color(red);
+                justify-content: center;
+                align-items: center;
+                svg[icon="alarm"] { 
+                    @include size(26px);
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
