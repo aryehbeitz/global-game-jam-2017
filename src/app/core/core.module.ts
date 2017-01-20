@@ -43,20 +43,6 @@ let providers: Array<any> = [
   }
 ];
 
-// Overide Http with mocked http
-// if (environment.enableMocks) {
-//   providers = providers.concat([
-//     MockBackend,
-//     BaseRequestOptions,
-//     ConnectionBackend,
-//     {
-//       provide: Http,
-//       useFactory: mockHttpFactory,
-//       deps: [LoggerService, MockBackend, BaseRequestOptions]
-//     }
-//   ]);
-// }
-
 const onlyExports: any = [
   BrowserModule,
   HttpModule,
@@ -65,7 +51,7 @@ const onlyExports: any = [
 ];
 
 const imports: any = onlyExports.concat([
-  EffectsModule.run(MainMenuEffects)
+
 ]);
 
 @NgModule({

@@ -11,7 +11,8 @@ import { MainMenuEffects } from './effects/main-menu.effect';
 @NgModule({
   imports: [
     SharedModule,
-    RoutingModule
+    RoutingModule,
+    EffectsModule.run(MainMenuEffects)
   ],
   providers: [
     MainMenuAPI,

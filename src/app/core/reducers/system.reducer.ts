@@ -1,3 +1,4 @@
+import { Settings } from './../models/settings.model';
 import { Action } from '@ngrx/store';
 import { SystemActionTypes } from '../actions/system.action';
 import { LOGIN_STATUS } from '../constants/login-status';
@@ -5,19 +6,19 @@ import { ShellActionTypes } from '../../shell/actions/shell.action';
 import { System } from '../../core/models/system.model';
 
 export interface State {
-    system: System
+    settings: Settings
 };
 
 const initialState: State = {
-    system: null
+    settings: {
+        sessionTime: 20,
+        numberOfRooms: 6,
+        numberOfCharacters: 10
+    }
 };
 
 export function systemReducer(state: State = initialState, action): State {
     switch (action.type) {
-        case SystemActionTypes.SYSTEM_GET_INFO_COMPLETE:
-            return Object.assign({}, state, {
-                system: action.payload.system
-            });
         case ShellActionTypes.LOGOUT:
             return Object.assign({}, state, {
                 system: null

@@ -26,7 +26,7 @@ import { ShellEffects } from './effects/shell.effect';
     CoreModule,
     RoutingModule,
     EffectsModule.run(ShellEffects),
-    EffectsModule.run(MainEffects)
+    EffectsModule.run(MainEffects),
   ],
   bootstrap: [ShellComponent]
 })

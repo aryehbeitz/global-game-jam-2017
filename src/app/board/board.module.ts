@@ -1,3 +1,6 @@
+import { BoardEffects } from './effects/board.effect';
+import { RoomService } from './services/room.service';
+import { BoardService } from './services/board.service';
 import { CommonModule } from '@angular/common';
 import { BoardContainer } from './containers/board/board.container';
 import { IntroContainer } from './containers/intro/intro.container';
@@ -12,13 +15,18 @@ import { CharacterComponent } from './components/character/character.component';
   imports: [
     SharedModule,
     RoutingModule,
-    CommonModule
+    CommonModule,
+    EffectsModule.run(BoardEffects)
   ],
   declarations: [
     IntroContainer,
     BoardContainer,
     RoomComponent,
     CharacterComponent
+  ],
+  providers: [
+    BoardService,
+    RoomService
   ]
 })
 export class BoardModule { }

@@ -1,3 +1,4 @@
+import { RoomsResolver } from './guards/rooms.resolver';
 import { BoardContainer } from './containers/board/board.container';
 import { IntroContainer } from './containers/intro/intro.container';
 import { LogoPageContainer } from './containers/logo-page/logo-page.container';
@@ -5,7 +6,6 @@ import { MainMenuContainer } from './containers/main-menu/main-menu.container';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppUsersMetaResolver } from './guards/app-users-meta.resolver';
-import { AppUsersResolver } from './guards/app-users.resolver';
 import { PermissionGuard } from '../core/guards/permission.guard';
 
 @NgModule({
@@ -16,17 +16,23 @@ import { PermissionGuard } from '../core/guards/permission.guard';
         children: [
           {
             path: 'rooms',
+            resolve: {
+              rooms: RoomsResolver
+            },
             component: BoardContainer
             
           },
           { path: '**', redirectTo: 'rooms' }
         ]
       },
-      { path: '**', redirectTo: '' }
+      { path: '**', redirectTo: 'rooms' }
     ])
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    RoomsResolver
   ]
 })
 export class RoutingModule { }

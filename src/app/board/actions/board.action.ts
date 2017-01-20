@@ -1,8 +1,10 @@
+import { Room } from './../models/room.model';
 import { Action } from '@ngrx/store';
 
 export const BoardActionTypes = {
   DELAYED_NAVIGATION:     '[Board] Delayed Navigation',
-  SETUP_BOARD:            '[Board] Setup Board'
+  SETUP_BOARD:            '[Board] Setup Board',
+  SETUP_BOARD_COMPLETE:            '[Board] Setup Board Complete'
 };
 
 export class DelayedNavigationAction implements Action {
@@ -14,10 +16,13 @@ export class DelayedNavigationAction implements Action {
   }) {}
 }
 
-export class BoardAction implements Action {
+export class SetupBoardAction implements Action {
   type = BoardActionTypes.SETUP_BOARD;
+}
+export class SetupBoardCompleteAction implements Action {
+  type = BoardActionTypes.SETUP_BOARD_COMPLETE;
 
-  constructor(public payload: { 
-    
+  constructor(public payload: {
+    rooms: Room[]
   }) {}
 }

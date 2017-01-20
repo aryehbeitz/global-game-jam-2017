@@ -6,7 +6,8 @@ export interface State {
     rooms: Room[];
 };
 
-const initialRooms = [
+const initialRooms = [];
+const init3ialRooms = [
     {
         id: '1',
         displayName: 'Room 1',
@@ -87,6 +88,10 @@ export function boardReducer(state: State = initialState, action): State {
     switch (action.type) {
         case BoardActionTypes.SETUP_BOARD:
             return Object.assign({}, state, {});
+        case BoardActionTypes.SETUP_BOARD_COMPLETE:
+            return Object.assign({}, state, {
+                rooms: action.payload.rooms
+            });
     }
     return state;
 };
