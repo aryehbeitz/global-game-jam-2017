@@ -1,21 +1,30 @@
 import { Character } from './../../models/character.model';
-import { Component, OnInit, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'ggj-character',
-  templateUrl: './character.component.html',
+  template: `
+    <div class="character-container" (click)="characterClick()">
+      <div>{{ character.displayName }}</div>
+    </div>
+  `,
   styleUrls: ['./character.component.scss']
 })
 export class CharacterComponent implements OnInit {
   @HostBinding('style.position') position: string = 'absolute';
   // @HostBinding('style.height') height: string = '100%';
   @Input() character: Character;
+  @Output() choose: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
     this.character.top = (20 + Math.random()*60) + '%';
     this.character.left = (20 + Math.random()*60) + '%';
+  }
+
+  characterClick() {
+    this.choose.emit(this.character.id);
   }
 
 }

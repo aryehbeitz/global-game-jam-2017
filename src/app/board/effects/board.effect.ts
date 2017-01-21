@@ -3,7 +3,7 @@ import { Character } from './../models/character.model';
 import { RoomService } from './../services/room.service';
 import { Room } from './../models/room.model';
 import { Settings } from '../../core/models/settings.model';
-import { BoardActionTypes, SetupBoardCompleteAction, StartSessionAction, EndSessionAction, EliminateCharacterAction } from './../actions/board.action';
+import { BoardActionTypes, SetupBoardCompleteAction, StartSessionAction, EndSessionAction, EliminateCharacterAction, GuessSuccessAction, GuessFailedAction } from './../actions/board.action';
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
@@ -39,7 +39,10 @@ export class BoardEffects {
   endSession$: Observable<Action> = this.actions$
     .ofType(BoardActionTypes.START_SESSION)
     .map(action => action.payload)
-    .delay(10000)
+    .switchMap(_ => {
+        return Observable.timer(10000)
+        .takeUntil(this.actions$.ofType(BoardActionTypes.GUESS_MURDERER))
+    })
     .map(_ => new EndSessionAction())
 
   @Effect({ dispatch: false })
@@ -78,6 +81,33 @@ export class BoardEffects {
     .ofType(BoardActionTypes.END_SESSION)
     .map(action => action.payload)
     .do(_ => this.router.navigate(['/board/session-end']))
+
+  @Effect()
+  guessMurderer$: Observable<Action> = this.actions$
+    .ofType(BoardActionTypes.GUESS_MURDERER)
+    .map(action => action.payload.guessedId)
+    .withLatestFrom(this.store.select('board', 'murdererId'), (guessedId, murdererId) => (guessedId === murdererId))
+    .map(guessedRight => {
+      if (guessedRight) {
+        return new GuessSuccessAction();
+      } else {
+        return new GuessFailedAction();
+      }
+    })
+
+@Effect({ dispatch: false })
+  navAfterSuccess$: Observable<Action> = this.actions$
+    .ofType(BoardActionTypes.GUESS_SUCCESS)
+    .do(_ => {
+      this.router.navigate(['/board/success-page'])
+    })
+
+@Effect({ dispatch: false })
+  navAfterFailure$: Observable<Action> = this.actions$
+    .ofType(BoardActionTypes.GUESS_FAILED)
+    .do(_ => {
+      this.router.navigate(['/board/session-end'])
+    })
 
   
 

@@ -1,0 +1,18 @@
+@import '../../../shared/common';
+@import '../../../shared/common.theme';
+
+.success-page-container {
+    @extend .flex-centered;
+    height: 100%;
+
+    --label-size: 36px;
+
+    .guessed-right {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    // svg[icon="alarm"] { 
+    //     @include size(100px);
+    // }
+}

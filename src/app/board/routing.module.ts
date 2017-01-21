@@ -1,3 +1,4 @@
+import { SuccessPageContainer } from './containers/success-page/success-page.container';
 import { SessionEndContainer } from './containers/session-end/session-end.container';
 import { RoomsResolver } from './guards/rooms.resolver';
 import { BoardContainer } from './containers/board/board.container';
@@ -24,10 +25,12 @@ import { PermissionGuard } from '../core/guards/permission.guard';
           },
           {
             path: 'session-end',
-            resolve: {
-              rooms: RoomsResolver
-            },
             component: SessionEndContainer
+            
+          },
+          {
+            path: 'success-page',
+            component: SuccessPageContainer
             
           }
         ]

@@ -1,6 +1,6 @@
 import { Character } from './../../models/character.model';
 import { Room } from './../../models/room.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/core';
 
 @Component({
@@ -17,10 +17,15 @@ import { trigger, state, style, transition, animate } from '@angular/core';
 export class RoomComponent implements OnInit {
   @Input() room: Room;
   @Input() characters: Character[];
+  @Output() chooseCharacter: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  characterChoose(characterId) {
+    this.chooseCharacter.emit(characterId);
   }
 
 }

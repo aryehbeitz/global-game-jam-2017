@@ -8,7 +8,10 @@ export const BoardActionTypes = {
   SETUP_BOARD_COMPLETE:   '[Board] Setup Board Complete',
   START_SESSION:          '[Board] Start Session',
   END_SESSION:            '[Board] End Session',
-  ELIMINATE_CHARACTER:    '[Board] Eliminate Character'
+  ELIMINATE_CHARACTER:    '[Board] Eliminate Character',
+  GUESS_MURDERER:         '[Board] Guess Murderer',
+  GUESS_SUCCESS:          '[Board] Guess Success',
+  GUESS_FAILED:           '[Board] Guess Failed'
 };
 
 export class DelayedNavigationAction implements Action {
@@ -44,4 +47,17 @@ export class EliminateCharacterAction implements Action {
   constructor(public payload: {
     eliminatedCharacterId: string
   }) {}
+}
+export class GuessMurdererAction implements Action {
+  type = BoardActionTypes.GUESS_MURDERER;
+
+  constructor(public payload: {
+    guessedId: string
+  }) {}
+}
+export class GuessSuccessAction implements Action {
+  type = BoardActionTypes.GUESS_SUCCESS;
+}
+export class GuessFailedAction implements Action {
+  type = BoardActionTypes.GUESS_FAILED;
 }

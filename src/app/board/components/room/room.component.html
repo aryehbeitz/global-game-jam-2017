@@ -2,6 +2,6 @@
   <!--<div>{{ room.displayName }}</div>-->
   <div class="characters">
     <ggj-character [@characterEnterLeave] *ngFor="let character of characters" [character]="character"
-     [style.top]="character.top" [style.left]="character.left"></ggj-character>
+     [style.top]="character.top" [style.left]="character.left" (choose)="characterChoose($event)"></ggj-character>
   </div>
 </div>

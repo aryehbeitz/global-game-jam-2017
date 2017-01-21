@@ -1,3 +1,4 @@
+import { GuessMurdererAction } from './../../actions/board.action';
 import { Store } from '@ngrx/store';
 import { Character } from './../../models/character.model';
 import { Room } from './../../models/room.model';
@@ -26,6 +27,10 @@ export class BoardContainer implements OnInit {
   getRoomCharacters(roomId) {
     return this.characters
       .map(characters => characters.filter(character => character.roomId === roomId));
+  }
+
+  characterChoose(characterId) {
+    this.store.dispatch(new GuessMurdererAction({ guessedId: characterId }))
   }
 
 }
