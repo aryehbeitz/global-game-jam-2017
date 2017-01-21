@@ -8,16 +8,20 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   selector: 'ggj-loose-page',
   template: `
     <div class="loose-page-container">
-      <div class="guessed-wrong">
-        You Lost you lives!!! Murderer is free.
+      <div class="sky">
+        <div class="guessed-wrong">
+          You've lost!!! Murderer is free.
+        </div>
+        <div class="actions">
+          <button-input class="restart" (click)="restartSession()">
+            Restart
+          </button-input>
+          <button-input (click)="gotoMainMenu()">
+            Main Menu
+          </button-input>
+        </div>
       </div>
-      <div class="actions">
-        <button-input class="restart" (click)="restartSession()">
-          Restart
-        </button-input>
-        <button-input (click)="gotoMainMenu()">
-          Main Menu
-        </button-input>
+      <div class="sea">
       </div>
     </div>
   `,

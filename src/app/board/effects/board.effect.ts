@@ -79,10 +79,16 @@ export class BoardEffects {
     })
 
   @Effect({ dispatch: false })
-  navToSessionEnd$: Observable<Action> = this.actions$
+  navToSessionEnd$: Observable<any> = this.actions$
     .ofType(BoardActionTypes.END_SESSION)
-    .map(action => action.payload)
-    .do(_ => this.router.navigate(['/board/session-end']))
+    .withLatestFrom(this.store.select('system', 'settings'), this.store.select('board', 'characters'), (_, settings, characters) => ({settings, characters}))
+    .do(combined => {
+      if (combined.settings['charactersToEndOfGame'] === combined.characters['length']) {
+        this.router.navigate(['/board/loose-page']);
+      } else {
+        this.router.navigate(['/board/session-end']);
+      }
+    })
 
   @Effect()
   guessMurderer$: Observable<Action> = this.actions$
