@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CharacterService {
-  private roomIds: string[] = ['ilan', 'yael', 'tom', 'chen' ,'shay', 'ziv', 'ben', 'zroob', 'yaela', 'sharon', 'ran', 'anonymous'];
+  private roomIds: string[] = ['character1', 'character2', 'character3', 'character4' ,'character5'];
 
   constructor(private arrExtensions: ArrayExtensionsService) { }
 

@@ -5,11 +5,17 @@
     @extend .flex-centered;
     height: 100%;
 
-    --label-size: 36px;
-
     .murdered-character {
         font-size: 28px;
         margin-bottom: 20px;
+        color: white;
+    }
+
+    .start-session {
+        --label-size: 30px;
+        --label-color: white;
+        --back-color: #4444dd;
+        width: 260px;
     }
 
     

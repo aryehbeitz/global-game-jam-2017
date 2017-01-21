@@ -14,8 +14,10 @@ import { Store } from '@ngrx/store';
           <button-input (click)="startGame()" [plain]="true">
             <svg class="play" icon="play"></svg>
           </button-input>
-          <div class="main-menu">
-            <button-input class="credits" i18n (click)="gotoCredits()" [plain]="true">Credits</button-input>
+          <div class="credits">
+            <div><span>Developer</span>: Chen Eshchar</div>
+            <div><span>Art Director</span>: Alizarin Zroob</div>
+            <div><span>Art Director Assistant</span>: Nami Nam</div>
           </div>
         </div>
     </div>
@@ -33,10 +35,6 @@ export class MainMenuContainer {
 
   startGame() {
     this.store.dispatch(new NavToIntroAction());
-  }
-
-  gotoCredits() {
-    
   }
 
 }

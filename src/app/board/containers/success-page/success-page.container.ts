@@ -8,16 +8,20 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   selector: 'ggj-success-page',
   template: `
     <div class="success-page-container">
-      <div class="guessed-right">
-        Greate Success!!! You have guessed the murderer identity!
+      <div class="sky">
+        <div class="guessed-right">
+          Greate Success!!! You have guessed the murderer identity!
+        </div>
+        <div class="actions">
+          <button-input class="restart" (click)="resstartSession()">
+            Restart
+          </button-input>
+          <button-input (click)="gotoMainMenu()">
+            Main Menu
+          </button-input>
+        </div>
       </div>
-      <div class="actions">
-        <button-input class="restart" (click)="resstartSession()">
-          Restart
-        </button-input>
-        <button-input (click)="gotoMainMenu()">
-          Main Menu
-        </button-input>
+      <div class="sea">
       </div>
     </div>
   `,

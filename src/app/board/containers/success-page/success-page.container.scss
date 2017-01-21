@@ -8,6 +8,7 @@
     --label-size: 36px;
 
     .guessed-right {
+        color: white;
         font-size: 28px;
         margin-bottom: 20px;
     }
@@ -16,6 +17,11 @@
         justify-content: center;
         .restart {
             margin-right: 10px;
+        }
+        button-input {
+            --label-size: 30px;
+            --label-color: white;
+            --back-color: #4444dd;
         }
     }
 

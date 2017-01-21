@@ -8,13 +8,17 @@ import { Component, OnInit, HostBinding } from '@angular/core';
   selector: 'ggj-session-end',
   template: `
     <div class="session-end-container">
-      <div class="murdered-character">
-        <div *ngIf="eliminatedCharacter | async">{{ (eliminatedCharacter | async)?.id }} has been murdered</div>
-        <div *ngIf="!(eliminatedCharacter | async)">No one was murdered</div>
+      <div class="sky">
+        <div class="murdered-character">
+          <div *ngIf="eliminatedCharacter | async">{{ (eliminatedCharacter | async)?.id }} has been murdered</div>
+          <div *ngIf="!(eliminatedCharacter | async)">No one was murdered</div>
+        </div>
+        <button-input class="start-session" (click)="startSession()">
+          Begin a new day
+        </button-input>
       </div>
-      <button-input (click)="startSession()">
-        Begin a new day
-      </button-input>
+      <div class="sea">
+      </div>
     </div>
   `,
   styleUrls: ['./session-end.container.scss']
