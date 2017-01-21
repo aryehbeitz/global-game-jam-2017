@@ -25,6 +25,26 @@ export class CharacterService {
     {
       id:'character5',
       displayName: 'Snoop'
+    },
+    {
+      id:'character6',
+      displayName: 'Shlomo'
+    },
+    {
+      id:'character7',
+      displayName: 'Yehiel'
+    },
+    {
+      id:'character8',
+      displayName: 'Dvora'
+    },
+    {
+      id:'character9',
+      displayName: 'Gella'
+    },
+    {
+      id:'character10',
+      displayName: 'Cammal'
     }
   ];
 
