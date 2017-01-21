@@ -1,6 +1,7 @@
 <div class="room-container">
   <!--<div>{{ room.displayName }}</div>-->
   <div class="characters">
-    <ggj-character *ngFor="let character of characters" [character]="character"></ggj-character>
+    <ggj-character [@characterEnterLeave] *ngFor="let character of characters" [character]="character"
+     [style.top]="character.top" [style.left]="character.left"></ggj-character>
   </div>
 </div>

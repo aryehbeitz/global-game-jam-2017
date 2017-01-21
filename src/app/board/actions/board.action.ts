@@ -7,7 +7,8 @@ export const BoardActionTypes = {
   SETUP_BOARD:            '[Board] Setup Board',
   SETUP_BOARD_COMPLETE:   '[Board] Setup Board Complete',
   START_SESSION:          '[Board] Start Session',
-  End_SESSION:            '[Board] End Session'
+  END_SESSION:            '[Board] End Session',
+  ELIMINATE_CHARACTER:    '[Board] Eliminate Character'
 };
 
 export class DelayedNavigationAction implements Action {
@@ -26,13 +27,21 @@ export class StartSessionAction implements Action {
   type = BoardActionTypes.START_SESSION;
 }
 export class EndSessionAction implements Action {
-  type = BoardActionTypes.End_SESSION;
+  type = BoardActionTypes.END_SESSION;
 }
 export class SetupBoardCompleteAction implements Action {
   type = BoardActionTypes.SETUP_BOARD_COMPLETE;
 
   constructor(public payload: {
     rooms: Room[],
-    characters: Character[]
+    characters: Character[],
+    murdererId: string
+  }) {}
+}
+export class EliminateCharacterAction implements Action {
+  type = BoardActionTypes.ELIMINATE_CHARACTER;
+
+  constructor(public payload: {
+    eliminatedCharacterId: string
   }) {}
 }
