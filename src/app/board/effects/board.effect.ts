@@ -60,10 +60,14 @@ export class BoardEffects {
       return Observable.interval(1000)
         .delay(Math.floor(1000+Math.random()*3000))
         .map(_ => characters.filter(char => (char.roomId === murderer.roomId) && (char.id !== murderer.id)))
-        .filter(userInSameRoom => userInSameRoom.length > 0)
-        .map(userInSameRoom => {
-          let eliminatedCharacter: Character = userInSameRoom[Math.floor(Math.random()*userInSameRoom.length)];
-          return new EliminateCharacterAction({ eliminatedCharacterId: eliminatedCharacter.id })
+        // .filter(userInSameRoom => userInSameRoom.length > 0)
+        .map(usersInSameRoom => {
+          let eliminatedCharacter: Character;
+          if (usersInSameRoom.length) {
+            eliminatedCharacter = usersInSameRoom[Math.floor(Math.random()*usersInSameRoom.length)];
+            return new EliminateCharacterAction({ eliminatedCharacterId: eliminatedCharacter.id });
+          }
+          return new EliminateCharacterAction({ eliminatedCharacterId: null })
         })
         .takeUntil(this.actions$.ofType(BoardActionTypes.END_SESSION).merge(this.actions$.ofType(BoardActionTypes.ELIMINATE_CHARACTER)
     .map(action => action.payload)))

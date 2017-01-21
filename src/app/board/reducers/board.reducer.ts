@@ -8,6 +8,7 @@ export interface State {
     rooms: Room[];
     characters: Character[];
     murdererId: string;
+    eliminatedCharacter: Character;
 };
 
 const initialRooms = [];
@@ -16,7 +17,8 @@ const initialCharacters = [];
 const initialState: State = {
    rooms: initialRooms,
    characters: initialCharacters,
-   murdererId: null
+   murdererId: null,
+   eliminatedCharacter: null
 };
 
 export function boardReducer(state: State = initialState, action): State {
@@ -35,8 +37,10 @@ export function boardReducer(state: State = initialState, action): State {
             return Object.assign(state);
         case BoardActionTypes.ELIMINATE_CHARACTER:
             let eliminatedCharacter = state.characters.find((char: Character) => char.id === action.payload.eliminatedCharacterId);
-            eliminatedCharacter.disQualified = true;
-            return Object.assign({}, state);
+            eliminatedCharacter && (eliminatedCharacter.disQualified = true);
+            return Object.assign({}, state, {
+                eliminatedCharacter
+            });
         case BoardActionTypes.END_SESSION:
             let characterToRemoveIndex = state.characters.findIndex((char: Character) => char.disQualified);
             if (characterToRemoveIndex !== -1) {
