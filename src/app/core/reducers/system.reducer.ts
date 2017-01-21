@@ -11,7 +11,7 @@ export interface State {
 
 const initialState: State = {
     settings: {
-        sessionTime: 10000,
+        sessionTime: 5000,
         numberOfRooms: 6,
         numberOfCharacters: 5,
         charactersToEndOfGame: 3,

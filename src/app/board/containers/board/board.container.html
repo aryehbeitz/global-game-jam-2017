@@ -1,5 +1,5 @@
 <div class="board-container">
-
+  <img class="board-bg" src="assets/board-bg.png"/>
   <div class="rooms">
     <ggj-room *ngFor="let room of rooms | async" [room]="room" [characters]="getRoomCharacters(room.id) | async"
      (chooseCharacter)="characterChoose($event)"></ggj-room> 

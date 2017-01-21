@@ -11,8 +11,8 @@ import { Store } from '@ngrx/store';
     <div class="intro-container">
       <div class="sky">
           <div class="intro-info">
-            {{ numOfCharacters | async }} characters are in old Jaffa. One of them is a murderer<br/>
-            Each day an act of murder is happening, <br/>if a murderer stays in the same room with the victim.<br/>
+            {{ numOfCharacters | async }} characters are in old Jaffa. One of them is a murderer.<br/>
+            Each day an act of murder is happening, <br/>if a murderer stays in the vicinity of its victim.<br/>
             Find the criminal within {{ daysToPlay | async }} days<br/>
             Choose wisely, as you only have {{ lives | async }} guessings.
           </div>

@@ -8,23 +8,23 @@ export class CharacterService {
   private chars: any[] = [
     {
       id:'character1',
-      disaplyName: 'Shlomo'
+      displayName: 'Shlomo'
     },
     {
       id:'character2',
-      disaplyName: 'Yeruham'
+      displayName: 'Yeruham'
     },
     {
       id:'character3',
-      disaplyName: 'Revital'
+      displayName: 'Revital'
     },
     {
       id:'character4',
-      disaplyName: 'Avi'
+      displayName: 'Avi'
     },
     {
       id:'character5',
-      disaplyName: 'Snoop'
+      displayName: 'Snoop'
     }
   ];
 
