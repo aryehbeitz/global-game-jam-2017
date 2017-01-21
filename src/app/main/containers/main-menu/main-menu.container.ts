@@ -5,16 +5,18 @@ import { Store } from '@ngrx/store';
 
 @Component({
   template: `
-    <div class="users-container" >
-        <div class="main-menu">
-            <button-input (click)="startGame()">
-                <div class="content">
-                    <svg icon="alarm"></svg>
-                    <div i18n>Start</div>
-                </div>
-            </button-input>
-            <!--<button-input i18n (click)="startGame()">Settings</button-input>-->
-            <button-input i18n (click)="gotoCredits()">Credits</button-input>
+    <div class="users-container">
+        <div class="sky">
+          <svg class="logo" icon="logo"></svg>
+          <svg class="wave" icon="wave"></svg>
+        </div>
+        <div class="sea">
+          <button-input (click)="startGame()" [plain]="true">
+            <svg class="play" icon="play"></svg>
+          </button-input>
+          <div class="main-menu">
+            <button-input class="credits" i18n (click)="gotoCredits()" [plain]="true">Credits</button-input>
+          </div>
         </div>
     </div>
   `,
