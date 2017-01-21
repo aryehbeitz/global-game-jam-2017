@@ -1,4 +1,15 @@
 .character-container {
     position: absolute;
     cursor: pointer;
+    text-align: center;
+    transform: scale(1);
+    
+    &:hover {
+        transition-duration: 0.3s;
+        transform: scale(1.2);
+    }
+    .graphics {
+        width: 20px;
+        height: 20px;
+    }
 }
