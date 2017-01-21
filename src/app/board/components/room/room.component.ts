@@ -9,7 +9,7 @@ import { trigger, state, style, transition, animate } from '@angular/core';
   styleUrls: ['./room.component.scss'],
   animations: [
     trigger('characterEnterLeave', [
-      transition(':leave', [style({ transform: 'scale(1)', 'transition-origin': 'center center' }), animate(1000)]),
+      // transition(':leave', [style({ transform: 'scale(1)', 'transition-origin': 'center center' }), animate(1000)]),
       transition(':enter', [style({ transform: 'scale(0)', 'transition-origin': 'center center' }), animate(1000)])
     ])
   ]

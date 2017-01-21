@@ -39,7 +39,7 @@ export class BoardEffects {
   endSession$: Observable<Action> = this.actions$
     .ofType(BoardActionTypes.START_SESSION)
     .map(action => action.payload)
-    .delay(5000)
+    .delay(10000)
     .map(_ => new EndSessionAction())
 
   @Effect({ dispatch: false })

@@ -15,7 +15,8 @@ export class CharacterService {
       .map((name: string, i: number): Character => ({
           id: name,
           displayName: name,
-          roomId: rooms[Math.floor(Math.random() * rooms.length)].id
+          roomId: rooms[Math.floor(Math.random() * rooms.length)].id,
+          disQualified: false
       }));
   }
 }
