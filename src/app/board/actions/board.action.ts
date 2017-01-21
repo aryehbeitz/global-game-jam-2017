@@ -11,7 +11,9 @@ export const BoardActionTypes = {
   ELIMINATE_CHARACTER:    '[Board] Eliminate Character',
   GUESS_MURDERER:         '[Board] Guess Murderer',
   GUESS_SUCCESS:          '[Board] Guess Success',
-  GUESS_FAILED:           '[Board] Guess Failed'
+  GUESS_FAILED:           '[Board] Guess Failed',
+  NAV_TO_LOOSE:           '[Board] Nav To Loose',
+  NAV_TO_MAIN_MENU:           '[Board] Nav To Main Menu'
 };
 
 export class DelayedNavigationAction implements Action {
@@ -38,7 +40,8 @@ export class SetupBoardCompleteAction implements Action {
   constructor(public payload: {
     rooms: Room[],
     characters: Character[],
-    murdererId: string
+    murdererId: string,
+    lives: number
   }) {}
 }
 export class EliminateCharacterAction implements Action {
@@ -60,4 +63,10 @@ export class GuessSuccessAction implements Action {
 }
 export class GuessFailedAction implements Action {
   type = BoardActionTypes.GUESS_FAILED;
+}
+export class NavToLooseAction implements Action {
+  type = BoardActionTypes.NAV_TO_LOOSE;
+}
+export class NavToMainMenuAction implements Action {
+  type = BoardActionTypes.NAV_TO_MAIN_MENU;
 }

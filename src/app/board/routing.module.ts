@@ -1,3 +1,4 @@
+import { LoosePageContainer } from './containers/loose-page/loose-page.container';
 import { SuccessPageContainer } from './containers/success-page/success-page.container';
 import { SessionEndContainer } from './containers/session-end/session-end.container';
 import { RoomsResolver } from './guards/rooms.resolver';
@@ -31,6 +32,11 @@ import { PermissionGuard } from '../core/guards/permission.guard';
           {
             path: 'success-page',
             component: SuccessPageContainer
+            
+          },
+          {
+            path: 'loose-page',
+            component: LoosePageContainer
             
           }
         ]

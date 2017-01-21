@@ -6,7 +6,7 @@ import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from '@an
   template: `
     <div class="character-container" (click)="characterClick()">
       <svg class="graphics" [icon]="character.id"/>
-      <div>{{ character.displayName }}</div>
+      <!--<div>{{ character.displayName }}</div>-->
     </div>
   `,
   styleUrls: ['./character.component.scss']

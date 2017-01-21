@@ -13,8 +13,8 @@ import { Store } from '@ngrx/store';
                     <div i18n>Start</div>
                 </div>
             </button-input>
-            <button-input i18n (click)="startGame()">Settings</button-input>
-            <button-input i18n (click)="startGame()">Credits</button-input>
+            <!--<button-input i18n (click)="startGame()">Settings</button-input>-->
+            <button-input i18n (click)="gotoCredits()">Credits</button-input>
         </div>
     </div>
   `,
@@ -31,6 +31,10 @@ export class MainMenuContainer {
 
   startGame() {
     this.store.dispatch(new NavToIntroAction());
+  }
+
+  gotoCredits() {
+    
   }
 
 }

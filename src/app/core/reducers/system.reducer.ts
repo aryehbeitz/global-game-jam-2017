@@ -13,7 +13,9 @@ const initialState: State = {
     settings: {
         sessionTime: 20,
         numberOfRooms: 6,
-        numberOfCharacters: 10
+        numberOfCharacters: 10,
+        charactersToEndOfGame: 4,
+        lives: 3
     }
 };
 

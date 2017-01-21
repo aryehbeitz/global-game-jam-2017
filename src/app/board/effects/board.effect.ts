@@ -3,7 +3,7 @@ import { Character } from './../models/character.model';
 import { RoomService } from './../services/room.service';
 import { Room } from './../models/room.model';
 import { Settings } from '../../core/models/settings.model';
-import { BoardActionTypes, SetupBoardCompleteAction, StartSessionAction, EndSessionAction, EliminateCharacterAction, GuessSuccessAction, GuessFailedAction } from './../actions/board.action';
+import { BoardActionTypes, SetupBoardCompleteAction, StartSessionAction, EndSessionAction, EliminateCharacterAction, GuessSuccessAction, GuessFailedAction, NavToLooseAction } from './../actions/board.action';
 import { Injectable } from '@angular/core';
 import { Effect, Actions } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
@@ -25,7 +25,7 @@ export class BoardEffects {
           numOfCharacter = characters.length,
           murderer: Character = characters[Math.floor(Math.random()*numOfCharacter)],
           murdererId = murderer.id;
-      return new SetupBoardCompleteAction({ rooms, characters, murdererId });
+      return new SetupBoardCompleteAction({ rooms, characters, murdererId, lives: settings.lives });
     })
 
   @Effect()
@@ -87,13 +87,33 @@ export class BoardEffects {
   guessMurderer$: Observable<Action> = this.actions$
     .ofType(BoardActionTypes.GUESS_MURDERER)
     .map(action => action.payload.guessedId)
-    .withLatestFrom(this.store.select('board', 'murdererId'), (guessedId, murdererId) => (guessedId === murdererId))
-    .map(guessedRight => {
-      if (guessedRight) {
+    .withLatestFrom(this.store.select('board', 'murdererId'), this.store.select('board', 'lives'),
+        (guessedId, murdererId, lives) => ({ guessedRight: (guessedId === murdererId), lives}))
+    .map(combined => {
+      const lives: number = +combined.lives;
+      if (combined.guessedRight) {
         return new GuessSuccessAction();
       } else {
-        return new GuessFailedAction();
+        if (lives === 0) {
+          return new NavToLooseAction();
+        } else {
+          return new GuessFailedAction();
+        }
       }
+    })
+
+@Effect({ dispatch: false })
+  navAfterLoose$: Observable<Action> = this.actions$
+    .ofType(BoardActionTypes.NAV_TO_LOOSE)
+    .do(_ => {
+      this.router.navigate(['/board/loose-page'])
+    })
+
+@Effect({ dispatch: false })
+  navToMainMenu$: Observable<Action> = this.actions$
+    .ofType(BoardActionTypes.NAV_TO_MAIN_MENU)
+    .do(_ => {
+      this.router.navigate(['/main/main-menu'])
     })
 
 @Effect({ dispatch: false })

@@ -1,13 +1,13 @@
 @import '../../../shared/common';
 @import '../../../shared/common.theme';
 
-.success-page-container {
+.loose-page-container {
     @extend .flex-centered;
     height: 100%;
 
     --label-size: 36px;
 
-    .guessed-right {
+    .guessed-wrong {
         font-size: 28px;
         margin-bottom: 20px;
     }

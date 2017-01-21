@@ -5,7 +5,15 @@
     @extend .flex-centered;
     height: 100%;
 
-    svg[icon="alarm"] { 
-        @include size(100px);
+    .intro-info {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    --label-size: 30px;
+
+    .start-btn {
+        width: 160px;
     }
 }

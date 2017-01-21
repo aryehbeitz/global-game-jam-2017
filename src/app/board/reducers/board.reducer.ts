@@ -9,6 +9,7 @@ export interface State {
     characters: Character[];
     murdererId: string;
     eliminatedCharacter: Character;
+    lives: number;
 };
 
 const initialRooms = [];
@@ -18,18 +19,20 @@ const initialState: State = {
    rooms: initialRooms,
    characters: initialCharacters,
    murdererId: null,
-   eliminatedCharacter: null
+   eliminatedCharacter: null,
+   lives: 0
 };
 
 export function boardReducer(state: State = initialState, action): State {
     switch (action.type) {
         case BoardActionTypes.SETUP_BOARD:
-            return Object.assign({}, state, {});
+            return Object.assign({}, state);
         case BoardActionTypes.SETUP_BOARD_COMPLETE:
             return Object.assign({}, state, {
                 rooms: action.payload.rooms,
                 characters: action.payload.characters,
-                murdererId: action.payload.murdererId
+                murdererId: action.payload.murdererId,
+                lives: action.payload.lives
             });
         case CharacterActionTypes.CHANGE_ROOM:
             let changingCharacter = state.characters.find((char: Character) => char.id === action.payload.characterId);
@@ -46,6 +49,7 @@ export function boardReducer(state: State = initialState, action): State {
                 eliminatedCharacter
             });
         case BoardActionTypes.GUESS_MURDERER:
+            state.lives = state.lives - 1;
         case BoardActionTypes.END_SESSION:
             let characterToRemoveIndex = state.characters.findIndex((char: Character) => char.disQualified);
             if (characterToRemoveIndex !== -1) {

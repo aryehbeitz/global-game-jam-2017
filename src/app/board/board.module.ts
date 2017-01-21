@@ -1,3 +1,4 @@
+import { LoosePageContainer } from './containers/loose-page/loose-page.container';
 import { SuccessPageContainer } from './containers/success-page/success-page.container';
 import { CharacterService } from './services/character.service';
 import { RoomService } from './services/room.service';
@@ -22,7 +23,8 @@ import { SessionEndContainer } from './containers/session-end/session-end.contai
     RoomComponent,
     CharacterComponent,
     SessionEndContainer,
-    SuccessPageContainer
+    SuccessPageContainer,
+    LoosePageContainer
   ],
   providers: [
     // BoardService,

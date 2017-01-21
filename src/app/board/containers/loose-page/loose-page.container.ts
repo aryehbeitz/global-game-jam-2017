@@ -5,14 +5,14 @@ import { Store } from '@ngrx/store';
 import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
-  selector: 'ggj-success-page',
+  selector: 'ggj-loose-page',
   template: `
-    <div class="success-page-container">
-      <div class="guessed-right">
-        Greate Success!!! You have guessed the murderer identity!
+    <div class="loose-page-container">
+      <div class="guessed-wrong">
+        You Lost you lives!!! Murderer is free.
       </div>
       <div class="actions">
-        <button-input class="restart" (click)="resstartSession()">
+        <button-input class="restart" (click)="restartSession()">
           Restart
         </button-input>
         <button-input (click)="gotoMainMenu()">
@@ -21,21 +21,20 @@ import { Component, OnInit, HostBinding } from '@angular/core';
       </div>
     </div>
   `,
-  styleUrls: ['./success-page.container.scss']
+  styleUrls: ['./loose-page.container.scss']
 })
-export class SuccessPageContainer implements OnInit {
+export class LoosePageContainer implements OnInit {
   @HostBinding('style.height') roomHeight: string = '100%';
-  // eliminatedCharacter: Observable<Character>;
 
   constructor(
     private store: Store<any>
   ) { }
 
   ngOnInit() {
-    // this.eliminatedCharacter = this.store.select('board', 'eliminatedCharacter');
+    
   }
 
-  resstartSession() {
+  restartSession() {
     this.store.dispatch(new SetupBoardAction());
   }
 
