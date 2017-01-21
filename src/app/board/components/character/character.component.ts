@@ -1,12 +1,12 @@
 import { Character } from './../../models/character.model';
 import { Component, OnInit, Input, HostBinding, Output, EventEmitter } from '@angular/core';
+import { trigger, state, animate, transition, style, keyframes } from '@angular/core';
 
 @Component({
   selector: 'ggj-character',
   template: `
     <div class="character-container" (click)="characterClick()">
       <svg class="graphics" [icon]="character.id"/>
-      <!--<div>{{ character.displayName }}</div>-->
     </div>
   `,
   styleUrls: ['./character.component.scss']

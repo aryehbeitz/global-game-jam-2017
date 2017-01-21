@@ -10,7 +10,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
     <div class="success-page-container">
       <div class="sky">
         <div class="guessed-right">
-          Greate Success!!! You have guessed the murderer identity!
+          Yes!! You have guessed the murderer identity.
         </div>
         <div class="actions">
           <button-input class="restart" (click)="resstartSession()">
