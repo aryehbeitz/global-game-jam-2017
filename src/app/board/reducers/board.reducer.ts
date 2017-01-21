@@ -34,13 +34,18 @@ export function boardReducer(state: State = initialState, action): State {
         case CharacterActionTypes.CHANGE_ROOM:
             let changingCharacter = state.characters.find((char: Character) => char.id === action.payload.characterId);
             changingCharacter.roomId = action.payload.targetRoomId;
-            return Object.assign(state);
+            return Object.assign({}, state);
+        case BoardActionTypes.START_SESSION:
+            return Object.assign({}, state, {
+                eliminatedCharacter: null
+            });
         case BoardActionTypes.ELIMINATE_CHARACTER:
             let eliminatedCharacter = state.characters.find((char: Character) => char.id === action.payload.eliminatedCharacterId);
             eliminatedCharacter && (eliminatedCharacter.disQualified = true);
             return Object.assign({}, state, {
                 eliminatedCharacter
             });
+        case BoardActionTypes.GUESS_MURDERER:
         case BoardActionTypes.END_SESSION:
             let characterToRemoveIndex = state.characters.findIndex((char: Character) => char.disQualified);
             if (characterToRemoveIndex !== -1) {

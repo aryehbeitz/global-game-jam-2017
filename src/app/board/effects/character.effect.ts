@@ -33,7 +33,7 @@ export class CharacterEffects {
             targetRoomId: room.id
           })
         })
-        .takeUntil(this.actions$.ofType(BoardActionTypes.END_SESSION))
+        .takeUntil(this.actions$.ofType(BoardActionTypes.END_SESSION, BoardActionTypes.GUESS_MURDERER))
     })
 
   constructor(

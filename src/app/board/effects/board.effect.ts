@@ -62,6 +62,7 @@ export class BoardEffects {
           murderer = characters.find(char => char.id === murdererId);
       return Observable.interval(1000)
         .delay(Math.floor(1000+Math.random()*3000))
+        .takeUntil(this.actions$.ofType(BoardActionTypes.GUESS_MURDERER))
         .map(_ => characters.filter(char => (char.roomId === murderer.roomId) && (char.id !== murderer.id)))
         // .filter(userInSameRoom => userInSameRoom.length > 0)
         .map(usersInSameRoom => {
