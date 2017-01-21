@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
         path: 'board',
         loadChildren: '../board/board.module#BoardModule'
       },
-      { path: '**', redirectTo: '/main/intro' }
+      { path: '**', redirectTo: '/main/main-menu' }
     ])
   ],
   providers: [

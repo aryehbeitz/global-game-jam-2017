@@ -39,8 +39,9 @@ export class BoardEffects {
   endSession$: Observable<Action> = this.actions$
     .ofType(BoardActionTypes.START_SESSION)
     .map(action => action.payload)
-    .switchMap(_ => {
-        return Observable.timer(10000)
+    .withLatestFrom(this.store.select('system', 'settings'), (_, settings) => settings)
+    .switchMap((settings: Settings) => {
+        return Observable.timer(settings.sessionTime)
         .takeUntil(this.actions$.ofType(BoardActionTypes.GUESS_MURDERER))
     })
     .map(_ => new EndSessionAction())
