@@ -61,7 +61,7 @@
     "moment": "2.16.0",
     "ng-inline-svg": "2.2.0",
     "node-sass": "3.11.2",
-    "protractor": "4.0.9",
+    "protractor": "5.0.0",
     "rxjs": "5.0.2",
     "ts-helpers": "1.1.1",
     "ts-node": "1.2.1",
