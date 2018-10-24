@@ -12,7 +12,9 @@
     "pree2e": "webdriver-manager update",
     "e2e": "protractor",
     "heroku-postbuild": "npm run svgstore && npm run build",
-    "start": "nf start"
+    "start": "nf start",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "main": "index.js",
   "engines": {
@@ -46,7 +48,7 @@
     "express": "^4.14.0",
     "font-awesome": "4.7.0",
     "foreman": "^2.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
@@ -57,7 +59,7 @@
     "karma-chrome-launcher": "2.0.0",
     "karma-cli": "1.0.1",
     "karma-jasmine": "1.0.2",
-    "karma-remap-istanbul": "0.2.1",
+    "karma-remap-istanbul": "0.3.0",
     "moment": "2.16.0",
     "ng-inline-svg": "2.2.0",
     "node-sass": "3.11.2",
@@ -67,6 +69,8 @@
     "ts-node": "1.2.1",
     "tslint": "3.13.0",
     "typescript": "2.0.10",
-    "zone.js": "0.7.2"
-  }
+    "zone.js": "0.7.2",
+    "snyk": "^1.104.2"
+  },
+  "snyk": true
 }
